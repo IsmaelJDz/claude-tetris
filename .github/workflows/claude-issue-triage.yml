@@ -56,8 +56,10 @@ jobs:
                `gh issue edit ${{ github.event.issue.number }} --repo ${{ github.repository }} --add-label "..." --add-label "..."`
                Si el evento es `edited` y algún label previo ya no aplica, quítalo con `--remove-label`.
 
-            4. DIAGNÓSTICO. Redacta en ESPAÑOL un diagnóstico con esta estructura
-               exacta (Markdown):
+            4. DIAGNÓSTICO. Redacta en ESPAÑOL un diagnóstico. Todo lo que
+               comentes debe estar en formato Markdown válido que GitHub pueda
+               renderizar (GitHub Flavored Markdown: encabezados, listas,
+               negritas, código con backticks). Usa esta estructura exacta:
 
                <!-- claude-triage -->
                ## 🔍 Diagnóstico automático
