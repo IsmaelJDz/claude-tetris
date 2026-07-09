@@ -76,7 +76,9 @@ function rotateCW(shape) {
 
 function tryRotate() {
   const rotated = rotateCW(current.shape);
-  const kicks = [0, -1, 1, -2, 2];
+  // Kick range must cover the widest bounding box (I piece: 4 cols) so a
+  // valid spot is still found when it's touching a wall next to a stack.
+  const kicks = [0, -1, 1, -2, 2, -3, 3];
   for (const kick of kicks) {
     if (!collide(rotated, current.x + kick, current.y)) {
       current.shape = rotated;
