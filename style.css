@@ -106,6 +106,75 @@ kbd {
   color: #aaa;
 }
 
+/* ---- Records ---- */
+.records-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12px;
+}
+
+.record-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  color: #aaa;
+}
+
+.record-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.record-score {
+  color: #7aa2f7;
+  font-weight: 700;
+}
+
+.record-empty {
+  color: #555570;
+  font-size: 11px;
+}
+
+.record-highlight,
+.record-highlight .record-score {
+  color: #ffd54f;
+}
+
+.records-best {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 11px;
+  color: #888;
+}
+
+.records-best b {
+  color: #7aa2f7;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#reset-records-btn {
+  align-self: flex-start;
+  margin-top: 2px;
+  background: transparent;
+  border: 1px solid #3a3a5a;
+  border-radius: 4px;
+  color: #888;
+  padding: 4px 8px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+#reset-records-btn:hover {
+  border-color: #e57373;
+  color: #e57373;
+}
+
 /* ---- Overlay ---- */
 .overlay {
   position: absolute;
@@ -118,7 +187,9 @@ kbd {
   border-radius: 4px;
 }
 
-.overlay.hidden {
+.overlay.hidden,
+.record-entry.hidden,
+.overlay-records.hidden {
   display: none;
 }
 
@@ -143,20 +214,68 @@ kbd {
   color: #7aa2f7;
 }
 
-#restart-btn {
-  margin-top: 8px;
+.record-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.record-entry-msg {
+  font-size: 13px;
+  color: #ffd54f;
+}
+
+#player-name {
+  background: #1a1a25;
+  border: 1px solid #3a3a5a;
+  border-radius: 4px;
+  color: #e0e0e0;
+  padding: 8px 10px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  text-align: center;
+  width: 180px;
+  user-select: text;
+}
+
+#player-name:focus {
+  outline: none;
+  border-color: #7aa2f7;
+}
+
+#save-record-btn {
+  padding: 8px 20px;
+  font-size: 13px;
+}
+
+.overlay-records {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 220px;
+  text-align: left;
+}
+
+#restart-btn,
+#save-record-btn {
   background: #7aa2f7;
   color: #0f0f17;
   border: none;
   border-radius: 6px;
-  padding: 10px 28px;
-  font-size: 14px;
   font-weight: 700;
   cursor: pointer;
   letter-spacing: 1px;
   transition: background 0.15s;
 }
 
-#restart-btn:hover {
+#restart-btn {
+  margin-top: 8px;
+  padding: 10px 28px;
+  font-size: 14px;
+}
+
+#restart-btn:hover,
+#save-record-btn:hover {
   background: #9bbdff;
 }
